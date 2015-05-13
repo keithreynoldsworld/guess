@@ -10,7 +10,7 @@ function* guessingGame() {
 	var theirGuess = yield game.ask
 	('I be thinky of a number from 1 to 100. What do you think my secret number is?');
    
-while(true){ 
+do{ 
 
 	if (theirGuess < x){yield game.say('too low. try again');
 		theirGuess = yield game.ask
@@ -30,18 +30,18 @@ while(true){
 
 
 	else if (theirGuess === x){yield game.say('YOU GoT IT RIGHT');
-							
+								Correct=true};
 
 
     
 
-} ;
+} while (Correct === false);
 
 
 
 }
 
-}
+
 
 	
 	
