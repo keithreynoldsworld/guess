@@ -10,38 +10,25 @@ function* guessingGame() {
 	var theirGuess = yield game.ask
 	('I be thinky of a number from 1 to 100. What do you think my secret number is?');
    
-do{ 
+	do{ 
 
-	if (theirGuess < x){yield game.say('too low. try again');
-		theirGuess = yield game.ask
-	('I be thinky of a number from 1 to 100. What do you think my secret number is?');
+		if (theirGuess < x) {
+			yield game.say('too low. try again');
+			theirGuess = yield game.ask('I be thinky of a number from 1 to 100. What do you think my secret number is?');
+		}
+		else if (theirGuess > x){
+			yield game.say('like Doug Benson, too high');
+			theirGuess = yield game.ask('I be thinky of a number from 1 to 100. What do you think my secret number is?');
+		}
+		else {
+			Correct=true;
+		}    
 
+	} while(Correct === false);
 
-
-	}
-    
-
-	else if (theirGuess > x){yield game.say('like Doug Benson, too high');
-	theirGuess = yield game.ask
-	('I be thinky of a number from 1 to 100. What do you think my secret number is?');
-
-	 
-	}
-
-
-	else if (theirGuess === x){yield game.say('YOU GoT IT RIGHT');
-								Correct=true};
-
-
-    
-
-} while (Correct === false);
-
-
+	yield game.say('you got it');
 
 }
-
-
 
 	
 	
